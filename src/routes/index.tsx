@@ -137,7 +137,7 @@ function Index() {
         </div>
       </section>
 
-      <footer className="border-t bg-card py-8 text-center text-sm text-muted-foreground">
+      <footer className="border-t bg-card px-4 pt-8 pb-28 text-center text-sm text-muted-foreground">
         <img src={logo.url} alt="" className="mx-auto mb-2 h-16 w-auto" />
         <p>© {new Date().getFullYear()} جامعہ ذیشان الاسلام — جملہ حقوق محفوظ ہیں</p>
       </footer>
