@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import video from "@/assets/hero.mp4.asset.json";
 import logo from "@/assets/logo.png.asset.json";
+import { AdmissionForm } from "@/components/admission-form";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -9,7 +10,7 @@ export const Route = createFileRoute("/")({
       { title: "جامعہ ذیشان الاسلام | Jamia Zeeshan-ul-Islam" },
       { name: "description", content: "جامعہ ذیشان الاسلام — حفظ، ناظرہ، درسِ نظامی اور دینی تعلیم کا مرکز۔" },
       { property: "og:title", content: "جامعہ ذیشان الاسلام" },
-      { property: "og:description", content: "دینی تعلیم کا مرکز — شعبہ جات، تازہ خبریں اور عطیات" },
+      { property: "og:description", content: "دینی تعلیم کا مرکز — شعبہ جات، داخلہ فارم اور عطیات" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -23,7 +24,7 @@ const JAZZCASH = "03XX-XXXXXXX";
 const nav = [
   { label: "صفحہ اول", href: "#home" },
   { label: "شعبہ جات", href: "#departments", children: ["حفظ القرآن", "ناظرہ", "درسِ نظامی", "تجوید"] },
-  { label: "تازہ خبریں", href: "#news" },
+  { label: "داخلہ فارم", href: "#admission" },
   { label: "عطیات", href: "#donate" },
 ];
 
@@ -34,10 +35,11 @@ const departments = [
   { t: "تجوید و قراءت", d: "مخارج اور قواعدِ تجوید کی مشق" },
 ];
 
-const news = [
-  { date: "۲۵ اکتوبر", t: "سالانہ جلسہ دستار بندی کی تیاریاں" },
-  { date: "۱۸ اکتوبر", t: "نئے داخلوں کا آغاز ہو گیا ہے" },
-  { date: "۱۰ اکتوبر", t: "ہفتہ وار درسِ قرآن ہر جمعرات بعد نمازِ مغرب" },
+const requirements = [
+  "بے فارم یا قومی شناختی کارڈ کی نقل",
+  "پچھلی تعلیم کا سرٹیفکیٹ یا نمبر شاہی",
+  "تازہ پاسپورٹ سائز تصاویر",
+  "والدین یا سرپرست کا فون نمبر",
 ];
 
 function Index() {
