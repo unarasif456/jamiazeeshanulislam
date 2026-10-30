@@ -125,17 +125,38 @@ function Index() {
         </div>
       </section>
 
-      <section id="news" className="bg-muted/40 py-16">
-        <div className="mx-auto max-w-4xl px-4">
-          <h2 className="text-gold mb-8 text-center text-3xl font-bold">تازہ خبریں</h2>
-          <ul className="space-y-3">
-            {news.map((n) => (
-              <li key={n.t} className="flex items-center gap-4 rounded-lg border bg-card p-4">
-                <span className="shrink-0 rounded bg-secondary px-3 text-sm text-secondary-foreground">{n.date}</span>
-                <span>{n.t}</span>
-              </li>
-            ))}
-          </ul>
+      <section id="admission" className="bg-muted/40 py-16">
+        <div className="mx-auto max-w-6xl px-4">
+          <h2 className="text-gold mb-2 text-center text-3xl font-bold">داخلہ فارم</h2>
+          <p className="mb-8 text-center text-muted-foreground">
+            نئے داخلوں کے لیے نیچے دی گئی تفصیل مکمل کریں۔
+          </p>
+          <div className="grid items-start gap-6 lg:grid-cols-[1.6fr_1fr]">
+            <AdmissionForm whatsapp={WHATSAPP} />
+            <aside className="rounded-2xl border bg-card p-6">
+              <h3 className="text-gold text-xl font-bold">داخلے کے لیے ضروری چیزیں</h3>
+              <ul className="mt-3 space-y-2">
+                {requirements.map((r) => (
+                  <li key={r} className="flex gap-2">
+                    <span className="text-primary">۞</span>
+                    <span className="text-sm">{r}</span>
+                  </li>
+                ))}
+              </ul>
+              <h3 className="text-gold mt-6 text-xl font-bold">مزید پوچھ گچھ</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                شعبہ جات، رہائش اور نصاب کے بارے میں سوال کے لیے وٹس ایپ پر رابطہ کریں۔
+              </p>
+              <a
+                href={`https://wa.me/${WHATSAPP}`}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 block rounded-full border border-primary px-4 py-2 text-center text-primary transition hover:bg-accent"
+              >
+                وٹس ایپ پر رابطہ
+              </a>
+            </aside>
+          </div>
         </div>
       </section>
 
