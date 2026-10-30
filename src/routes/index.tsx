@@ -18,7 +18,8 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const WHATSAPP = "923000000000";
+const WHATSAPP = "923152834384";
+const WHATSAPP_DISPLAY = "0315-2834384";
 const JAZZCASH = "03XX-XXXXXXX";
 
 const nav = [
@@ -51,10 +52,19 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-40 border-b bg-background/85 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2">
-          <a href="#home" className="flex items-center gap-2">
-            <img src={logo.url} alt="جامعہ ذیشان الاسلام" className="h-12 w-auto drop-shadow-[0_2px_6px_rgba(0,0,0,0.55)]" />
-            <span className="text-gold text-lg font-bold">جامعہ ذیشان الاسلام</span>
-          </a>
+          <div className="flex items-center gap-2">
+            <button
+              aria-label="ڈارک موڈ"
+              onClick={() => {
+                const d = document.documentElement.classList.toggle("dark");
+                setDark(d);
+              }}
+              className="rounded-full border px-3 py-1 text-sm text-foreground"
+            >
+              {dark ? "☀ روشن" : "☾ ڈارک"}
+            </button>
+            <button aria-label="مینو" onClick={() => setMenu(!menu)} className="rounded border px-2 text-primary md:hidden">☰</button>
+          </div>
           <nav className="hidden items-center gap-5 md:flex">
             {nav.map((n) => (
               <div key={n.label} className="relative" onMouseEnter={() => setOpen(n.label)} onMouseLeave={() => setOpen(null)}>
