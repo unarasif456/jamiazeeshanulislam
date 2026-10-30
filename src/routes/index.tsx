@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import video from "@/assets/hero.mp4.asset.json";
 import logo from "@/assets/logo.png.asset.json";
+import { AdmissionForm } from "@/components/admission-form";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -9,7 +10,7 @@ export const Route = createFileRoute("/")({
       { title: "جامعہ ذیشان الاسلام | Jamia Zeeshan-ul-Islam" },
       { name: "description", content: "جامعہ ذیشان الاسلام — حفظ، ناظرہ، درسِ نظامی اور دینی تعلیم کا مرکز۔" },
       { property: "og:title", content: "جامعہ ذیشان الاسلام" },
-      { property: "og:description", content: "دینی تعلیم کا مرکز — شعبہ جات، تازہ خبریں اور عطیات" },
+      { property: "og:description", content: "دینی تعلیم کا مرکز — شعبہ جات، داخلہ فارم اور عطیات" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -23,7 +24,7 @@ const JAZZCASH = "03XX-XXXXXXX";
 const nav = [
   { label: "صفحہ اول", href: "#home" },
   { label: "شعبہ جات", href: "#departments", children: ["حفظ القرآن", "ناظرہ", "درسِ نظامی", "تجوید"] },
-  { label: "تازہ خبریں", href: "#news" },
+  { label: "داخلہ فارم", href: "#admission" },
   { label: "عطیات", href: "#donate" },
 ];
 
@@ -34,10 +35,11 @@ const departments = [
   { t: "تجوید و قراءت", d: "مخارج اور قواعدِ تجوید کی مشق" },
 ];
 
-const news = [
-  { date: "۲۵ اکتوبر", t: "سالانہ جلسہ دستار بندی کی تیاریاں" },
-  { date: "۱۸ اکتوبر", t: "نئے داخلوں کا آغاز ہو گیا ہے" },
-  { date: "۱۰ اکتوبر", t: "ہفتہ وار درسِ قرآن ہر جمعرات بعد نمازِ مغرب" },
+const requirements = [
+  "بے فارم یا قومی شناختی کارڈ کی نقل",
+  "پچھلی تعلیم کا سرٹیفکیٹ یا نمبر شاہی",
+  "تازہ پاسپورٹ سائز تصاویر",
+  "والدین یا سرپرست کا فون نمبر",
 ];
 
 function Index() {
@@ -123,17 +125,38 @@ function Index() {
         </div>
       </section>
 
-      <section id="news" className="bg-muted/40 py-16">
-        <div className="mx-auto max-w-4xl px-4">
-          <h2 className="text-gold mb-8 text-center text-3xl font-bold">تازہ خبریں</h2>
-          <ul className="space-y-3">
-            {news.map((n) => (
-              <li key={n.t} className="flex items-center gap-4 rounded-lg border bg-card p-4">
-                <span className="shrink-0 rounded bg-secondary px-3 text-sm text-secondary-foreground">{n.date}</span>
-                <span>{n.t}</span>
-              </li>
-            ))}
-          </ul>
+      <section id="admission" className="bg-muted/40 py-16">
+        <div className="mx-auto max-w-6xl px-4">
+          <h2 className="text-gold mb-2 text-center text-3xl font-bold">داخلہ فارم</h2>
+          <p className="mb-8 text-center text-muted-foreground">
+            نئے داخلوں کے لیے نیچے دی گئی تفصیل مکمل کریں۔
+          </p>
+          <div className="grid items-start gap-6 lg:grid-cols-[1.6fr_1fr]">
+            <AdmissionForm whatsapp={WHATSAPP} />
+            <aside className="rounded-2xl border bg-card p-6">
+              <h3 className="text-gold text-xl font-bold">داخلے کے لیے ضروری چیزیں</h3>
+              <ul className="mt-3 space-y-2">
+                {requirements.map((r) => (
+                  <li key={r} className="flex gap-2">
+                    <span className="text-primary">۞</span>
+                    <span className="text-sm">{r}</span>
+                  </li>
+                ))}
+              </ul>
+              <h3 className="text-gold mt-6 text-xl font-bold">مزید پوچھ گچھ</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                شعبہ جات، رہائش اور نصاب کے بارے میں سوال کے لیے وٹس ایپ پر رابطہ کریں۔
+              </p>
+              <a
+                href={`https://wa.me/${WHATSAPP}`}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 block rounded-full border border-primary px-4 py-2 text-center text-primary transition hover:bg-accent"
+              >
+                وٹس ایپ پر رابطہ
+              </a>
+            </aside>
+          </div>
         </div>
       </section>
 
