@@ -53,6 +53,7 @@ function Index() {
       <header className="sticky top-0 z-40 border-b bg-background/85 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2">
           <div className="flex items-center gap-2">
+            <button aria-label="مینو" onClick={() => setMenu(!menu)} className="rounded border px-2 text-primary md:hidden">☰</button>
             <button
               aria-label="ڈارک موڈ"
               onClick={() => {
@@ -63,7 +64,6 @@ function Index() {
             >
               {dark ? "☀ روشن" : "☾ ڈارک"}
             </button>
-            <button aria-label="مینو" onClick={() => setMenu(!menu)} className="rounded border px-2 text-primary md:hidden">☰</button>
           </div>
           <nav className="hidden items-center gap-5 md:flex">
             {nav.map((n) => (
@@ -81,7 +81,7 @@ function Index() {
           </nav>
           <a href="#home" className="flex items-center gap-2">
             <img src={logo.url} alt="جامعہ ذیشان الاسلام" className="h-12 w-auto drop-shadow-[0_2px_6px_rgba(0,0,0,0.55)]" />
-            <span className="text-gold text-lg font-bold">جامعہ ذیشان الاسلام</span>
+            <span className="text-gold brand-lift text-lg font-bold">جامعہ ذیشان الاسلام</span>
           </a>
         </div>
         {menu && (
