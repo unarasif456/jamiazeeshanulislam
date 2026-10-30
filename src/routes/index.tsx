@@ -79,19 +79,10 @@ function Index() {
               </div>
             ))}
           </nav>
-          <div className="flex items-center gap-2">
-            <button
-              aria-label="ڈارک موڈ"
-              onClick={() => {
-                const d = document.documentElement.classList.toggle("dark");
-                setDark(d);
-              }}
-              className="rounded-full border px-3 py-1 text-sm text-foreground"
-            >
-              {dark ? "☀ روشن" : "☾ ڈارک"}
-            </button>
-            <button aria-label="مینو" onClick={() => setMenu(!menu)} className="rounded border px-2 text-primary md:hidden">☰</button>
-          </div>
+          <a href="#home" className="flex items-center gap-2">
+            <img src={logo.url} alt="جامعہ ذیشان الاسلام" className="h-12 w-auto drop-shadow-[0_2px_6px_rgba(0,0,0,0.55)]" />
+            <span className="text-gold text-lg font-bold">جامعہ ذیشان الاسلام</span>
+          </a>
         </div>
         {menu && (
           <div className="border-t px-4 py-2 md:hidden">
