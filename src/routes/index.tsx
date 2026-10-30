@@ -18,7 +18,8 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const WHATSAPP = "923000000000";
+const WHATSAPP = "923152834384";
+const WHATSAPP_DISPLAY = "0315-2834384";
 const JAZZCASH = "03XX-XXXXXXX";
 
 const nav = [
@@ -51,10 +52,19 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-40 border-b bg-background/85 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2">
-          <a href="#home" className="flex items-center gap-2">
-            <img src={logo.url} alt="جامعہ ذیشان الاسلام" className="h-12 w-auto drop-shadow-[0_2px_6px_rgba(0,0,0,0.55)]" />
-            <span className="text-gold text-lg font-bold">جامعہ ذیشان الاسلام</span>
-          </a>
+          <div className="flex items-center gap-2">
+            <button
+              aria-label="ڈارک موڈ"
+              onClick={() => {
+                const d = document.documentElement.classList.toggle("dark");
+                setDark(d);
+              }}
+              className="rounded-full border px-3 py-1 text-sm text-foreground"
+            >
+              {dark ? "☀ روشن" : "☾ ڈارک"}
+            </button>
+            <button aria-label="مینو" onClick={() => setMenu(!menu)} className="rounded border px-2 text-primary md:hidden">☰</button>
+          </div>
           <nav className="hidden items-center gap-5 md:flex">
             {nav.map((n) => (
               <div key={n.label} className="relative" onMouseEnter={() => setOpen(n.label)} onMouseLeave={() => setOpen(null)}>
@@ -69,19 +79,10 @@ function Index() {
               </div>
             ))}
           </nav>
-          <div className="flex items-center gap-2">
-            <button
-              aria-label="ڈارک موڈ"
-              onClick={() => {
-                const d = document.documentElement.classList.toggle("dark");
-                setDark(d);
-              }}
-              className="rounded-full border px-3 py-1 text-sm text-foreground"
-            >
-              {dark ? "☀ روشن" : "☾ ڈارک"}
-            </button>
-            <button aria-label="مینو" onClick={() => setMenu(!menu)} className="rounded border px-2 text-primary md:hidden">☰</button>
-          </div>
+          <a href="#home" className="flex items-center gap-2">
+            <img src={logo.url} alt="جامعہ ذیشان الاسلام" className="h-12 w-auto drop-shadow-[0_2px_6px_rgba(0,0,0,0.55)]" />
+            <span className="text-gold text-lg font-bold">جامعہ ذیشان الاسلام</span>
+          </a>
         </div>
         {menu && (
           <div className="border-t px-4 py-2 md:hidden">
@@ -170,9 +171,77 @@ function Index() {
         </div>
       </section>
 
-      <footer className="border-t bg-card px-4 pt-8 pb-28 text-center text-sm text-muted-foreground">
-        <img src={logo.url} alt="" className="mx-auto mb-2 h-16 w-auto" />
-        <p>© {new Date().getFullYear()} جامعہ ذیشان الاسلام — جملہ حقوق محفوظ ہیں</p>
+      <footer className="bg-card">
+        <div className="bg-gold h-1 w-full" />
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 pt-12 pb-10 md:grid-cols-2 lg:grid-cols-4">
+          <div className="lg:col-span-1">
+            <div className="flex items-center gap-3">
+              <img src={logo.url} alt="جامعہ ذیشان الاسلام" className="h-16 w-auto drop-shadow-[0_2px_6px_rgba(0,0,0,0.55)]" />
+              <span className="text-gold text-xl font-bold">جامعہ ذیشان الاسلام</span>
+            </div>
+            <p className="mt-3 text-sm text-muted-foreground">
+              علم، عمل اور اخلاق کا گہوارہ — قرآن و سنت کی روشنی میں تعلیم و تربیت کا مرکز۔
+            </p>
+            <p className="font-latin mt-4 text-lg text-primary">وَقُل رَّبِّ زِدْنِي عِلْمًا</p>
+          </div>
+
+          <div>
+            <h3 className="text-gold text-xl font-bold">فوری روابط</h3>
+            <ul className="mt-2 space-y-1 text-sm">
+              {nav.map((n) => (
+                <li key={n.label}>
+                  <a href={n.href} className="hover:text-primary">{n.label}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-gold text-xl font-bold">شعبہ جات</h3>
+            <ul className="mt-2 space-y-1 text-sm">
+              {departments.map((d) => (
+                <li key={d.t}>
+                  <a href="#departments" className="hover:text-primary">{d.t}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-gold text-xl font-bold">رابطہ</h3>
+            <ul className="mt-2 space-y-2 text-sm text-muted-foreground">
+              <li>
+                وٹس ایپ:{" "}
+                <a
+                  dir="ltr"
+                  href={`https://wa.me/${WHATSAPP}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-latin text-foreground hover:text-primary"
+                >
+                  {WHATSAPP_DISPLAY}
+                </a>
+              </li>
+              <li>
+                JazzCash:{" "}
+                <span dir="ltr" className="font-latin text-foreground">{JAZZCASH}</span>
+              </li>
+              <li>داخلہ و استفسار کے لیے فارم پُر کریں یا براہِ راست رابطہ کریں۔</li>
+            </ul>
+            <a
+              href={`https://wa.me/${WHATSAPP}`}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-4 inline-block rounded-full bg-whatsapp px-5 py-2 text-center text-whatsapp-foreground"
+            >
+              واٹس ایپ پر رابطہ
+            </a>
+          </div>
+        </div>
+
+        <div className="border-t px-4 pt-4 pb-28 text-center text-xs text-muted-foreground md:pb-8">
+          <p>© {new Date().getFullYear()} جامعہ ذیشان الاسلام — جملہ حقوق محفوظ ہیں</p>
+        </div>
       </footer>
 
       <a
