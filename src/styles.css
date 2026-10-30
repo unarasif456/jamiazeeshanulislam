@@ -96,6 +96,7 @@
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
   --whatsapp: oklch(0.62 0.18 150);
+  --whatsapp-foreground: oklch(0.99 0 0);
   --gradient-gold: linear-gradient(135deg, oklch(0.62 0.13 80), oklch(0.45 0.12 70));
   --overlay: linear-gradient(to bottom, oklch(1 0 0 / 55%), oklch(1 0 0 / 92%));
 }
@@ -121,12 +122,14 @@
   --input: oklch(0.8 0.14 85 / 25%);
   --ring: oklch(0.8 0.14 85);
   --whatsapp: oklch(0.72 0.18 150);
+  --whatsapp-foreground: oklch(0.13 0.02 160);
   --gradient-gold: linear-gradient(135deg, oklch(0.88 0.13 90), oklch(0.7 0.15 75));
   --overlay: linear-gradient(to bottom, oklch(0.1 0.02 160 / 70%), oklch(0.13 0.02 160 / 95%));
 }
 
 @theme inline {
   --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-foreground: var(--whatsapp-foreground);
   --font-urdu: "Noto Nastaliq Urdu", "Amiri", serif;
   --font-latin: "Amiri", serif;
 }
