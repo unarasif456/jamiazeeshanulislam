@@ -95,6 +95,9 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+  --whatsapp: oklch(0.62 0.18 150);
+  --gradient-gold: linear-gradient(135deg, oklch(0.62 0.13 80), oklch(0.45 0.12 70));
+  --overlay: linear-gradient(to bottom, oklch(1 0 0 / 55%), oklch(1 0 0 / 92%));
 }
 
 .dark {
