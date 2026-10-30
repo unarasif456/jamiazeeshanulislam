@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import video from "@/assets/hero.mp4.asset.json";
-import logo from "@/assets/logo.jpg.asset.json";
+import logo from "@/assets/logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -49,7 +49,7 @@ function Index() {
       <header className="sticky top-0 z-40 border-b bg-background/85 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2">
           <a href="#home" className="flex items-center gap-2">
-            <img src={logo.url} alt="جامعہ ذیشان الاسلام" className="h-12 w-12 rounded-full object-cover ring-1 ring-primary/50" />
+            <img src={logo.url} alt="جامعہ ذیشان الاسلام" className="h-12 w-auto drop-shadow-[0_2px_6px_rgba(0,0,0,0.55)]" />
             <span className="text-gold text-lg font-bold">جامعہ ذیشان الاسلام</span>
           </a>
           <nav className="hidden items-center gap-5 md:flex">
@@ -89,7 +89,7 @@ function Index() {
         <video src={video.url} autoPlay muted loop playsInline className="absolute inset-0 h-full w-full object-cover" />
         <div className="bg-overlay absolute inset-0" />
         <div className="relative z-10 px-4 text-center">
-          <img src={logo.url} alt="" className="mx-auto mb-4 w-44 rounded-2xl mix-blend-lighten" />
+          <img src={logo.url} alt="" className="mx-auto mb-4 w-44 drop-shadow-[0_6px_18px_rgba(0,0,0,0.6)]" />
           <p className="font-latin text-2xl text-primary">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
           <h1 className="text-gold mt-2 text-4xl font-bold md:text-6xl">جامعہ ذیشان الاسلام</h1>
           <p className="mt-3 text-muted-foreground">علم، عمل اور اخلاق کا گہوارہ</p>
@@ -138,7 +138,7 @@ function Index() {
       </section>
 
       <footer className="border-t bg-card py-8 text-center text-sm text-muted-foreground">
-        <img src={logo.url} alt="" className="mx-auto mb-2 h-16 w-16 rounded-full object-cover" />
+        <img src={logo.url} alt="" className="mx-auto mb-2 h-16 w-auto" />
         <p>© {new Date().getFullYear()} جامعہ ذیشان الاسلام — جملہ حقوق محفوظ ہیں</p>
       </footer>
 
