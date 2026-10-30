@@ -43,6 +43,7 @@ const news = [
 function Index() {
   const [open, setOpen] = useState<string | null>(null);
   const [menu, setMenu] = useState(false);
+  const [dark, setDark] = useState(true);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -67,7 +68,16 @@ function Index() {
             ))}
           </nav>
           <div className="flex items-center gap-2">
-            <a href="#donate" className="bg-gold rounded-full px-4 py-1.5 text-sm font-bold text-primary-foreground">عطیہ دیں</a>
+            <button
+              aria-label="ڈارک موڈ"
+              onClick={() => {
+                const d = document.documentElement.classList.toggle("dark");
+                setDark(d);
+              }}
+              className="rounded-full border px-3 py-1 text-sm text-foreground"
+            >
+              {dark ? "☀ روشن" : "☾ ڈارک"}
+            </button>
             <button aria-label="مینو" onClick={() => setMenu(!menu)} className="rounded border px-2 text-primary md:hidden">☰</button>
           </div>
         </div>
