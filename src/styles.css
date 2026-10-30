@@ -150,6 +150,11 @@
   line-height: 2.2;
   overflow: visible;
 }
+/* Nastaliq ink sits low in its line box; lift the header brand so it lines up
+   with the logo next to it. Measured offset was 0.4em at text-lg. */
+@utility brand-lift {
+  translate: 0 -0.4em;
+}
 
 @layer base {
   * {

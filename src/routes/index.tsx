@@ -81,7 +81,7 @@ function Index() {
           </nav>
           <a href="#home" className="flex items-center gap-2">
             <img src={logo.url} alt="جامعہ ذیشان الاسلام" className="h-12 w-auto drop-shadow-[0_2px_6px_rgba(0,0,0,0.55)]" />
-            <span className="text-gold text-lg font-bold">جامعہ ذیشان الاسلام</span>
+            <span className="text-gold brand-lift text-lg font-bold">جامعہ ذیشان الاسلام</span>
           </a>
         </div>
         {menu && (
