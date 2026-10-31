@@ -20,7 +20,7 @@ export const Route = createFileRoute("/")({
 
 const WHATSAPP = "923152834384";
 const WHATSAPP_DISPLAY = "0315-2834384";
-const JAZZCASH = "03XX-XXXXXXX";
+const JAZZCASH = "0315-2834384";
 
 const nav = [
   { label: "صفحہ اول", href: "#home" },
@@ -80,8 +80,8 @@ function Index() {
             ))}
           </nav>
           <a href="#home" className="flex items-center gap-2">
-            <img src={logo.url} alt="جامعہ ذیشان الاسلام" className="h-12 w-auto drop-shadow-[0_2px_6px_rgba(0,0,0,0.55)]" />
             <span className="text-gold brand-lift text-lg font-bold">جامعہ ذیشان الاسلام</span>
+            <img src={logo.url} alt="جامعہ ذیشان الاسلام" className="h-12 w-auto drop-shadow-[0_2px_6px_rgba(0,0,0,0.55)]" />
           </a>
         </div>
         {menu && (
@@ -143,6 +143,12 @@ function Index() {
                     <span className="text-sm">{r}</span>
                   </li>
                 ))}
+              </ul>
+              <h3 className="text-gold mt-6 text-xl font-bold">اوقات</h3>
+              <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
+                <li>صبح: ۸ تا ۱۲</li>
+                <li>دوپہر: ۲ تا ۴</li>
+                <li>رات: ۷ تا ۹</li>
               </ul>
               <h3 className="text-gold mt-6 text-xl font-bold">مزید پوچھ گچھ</h3>
               <p className="mt-2 text-sm text-muted-foreground">
@@ -226,6 +232,7 @@ function Index() {
                 JazzCash:{" "}
                 <span dir="ltr" className="font-latin text-foreground">{JAZZCASH}</span>
               </li>
+              <li>اوقات: صبح ۸–۱۲، دوپہر ۲–۴، رات ۷–۹</li>
               <li>داخلہ و استفسار کے لیے فارم پُر کریں یا براہِ راست رابطہ کریں۔</li>
             </ul>
             <a
