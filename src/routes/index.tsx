@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import video from "@/assets/hero.mp4.asset.json";
 import logo from "@/assets/logo.png.asset.json";
 import { AdmissionForm } from "@/components/admission-form";
 
@@ -97,7 +98,9 @@ function Index() {
         )}
       </header>
 
-      <section id="home" className="relative flex min-h-[85vh] items-center justify-center overflow-hidden bg-gradient-to-b from-primary/25 via-background to-background">
+      <section id="home" className="relative flex min-h-[85vh] items-center justify-center overflow-hidden">
+        <video src={video.url} autoPlay muted loop playsInline className="absolute inset-0 h-full w-full object-cover" />
+        <div className="bg-overlay absolute inset-0" />
         <div className="relative z-10 px-4 text-center">
           <img src={logo.url} alt="" className="mx-auto mb-4 w-44 drop-shadow-[0_6px_18px_rgba(0,0,0,0.6)]" />
           <p className="font-latin text-2xl text-primary">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
