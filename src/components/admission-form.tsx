@@ -133,6 +133,7 @@ export function AdmissionForm({ whatsapp }: { whatsapp: string }) {
     }
     setErrors({});
     setDone(true);
+    window.open(waHref(), "_blank", "noopener,noreferrer");
   };
 
   const reset = () => {
@@ -142,19 +143,8 @@ export function AdmissionForm({ whatsapp }: { whatsapp: string }) {
   };
 
   const waHref = () => {
-    const text = [
-      "السلام علیکم! جامعہ ذیشان الاسلام میں داخلے کی درخواست:",
-      `طلبہ کا نام: ${form.name}`,
-      `والد/سرپرست: ${form.father}`,
-      `شعبہ: ${form.dept}`,
-      `فون نمبر: ${form.phone}`,
-      `شہر/پتہ: ${form.city}`,
-      `تاریخ پیدائش: ${form.dob}`,
-      form.prev ? `پچھلی تعلیم: ${form.prev}` : "",
-    ]
-      .filter(Boolean)
-      .join("\n");
-    return `https://wa.me/${waNumber(form.phone) || whatsapp}?text=${encodeURIComponent(text)}`;
+    const text = `New Admission - Name: ${form.name}, Course: ${form.dept}, Phone: ${form.phone}`;
+    return `https://wa.me/${whatsapp}?text=${encodeURIComponent(text)}`;
   };
 
   if (done) {
