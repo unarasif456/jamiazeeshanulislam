@@ -35,14 +35,6 @@ function phoneOk(v: string) {
   return /^(92|0)?3\d{9}$/.test(digits(v));
 }
 
-/** نمبر کو 923XXXXXXXXX شکل میں لانا (وٹس ایپ لنک کے لیے) */
-function waNumber(v: string) {
-  const d = digits(v);
-  if (d.startsWith("92")) return d;
-  if (d.startsWith("0")) return "92" + d.slice(1);
-  return "92" + d;
-}
-
 function dobOk(v: string) {
   const d = new Date(v + "T00:00:00Z");
   if (Number.isNaN(d.getTime())) return false;
