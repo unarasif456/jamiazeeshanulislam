@@ -161,8 +161,8 @@ export function AdmissionForm({ whatsapp }: { whatsapp: string }) {
       <div className="rounded-2xl border-2 border-primary bg-card p-6 text-center">
         <div className="text-gold text-2xl font-bold">جزاک اللہ خیرًا</div>
         <p className="mt-2 text-muted-foreground">
-          آپ کی درخواست تیار ہے۔ تصدیق کے لیے اسے وٹس ایپ پر بھیج دیں یا جامعہ آ کر
-          دستاویزات جمع کروائیں۔
+          آپ کی درخواست وٹس ایپ پر بھیج دی گئی ہے۔ اگر وٹس ایپ نہ کھلا ہو تو نیچے
+          والے بٹن سے دوبارہ بھیجیں۔
         </p>
         <ul className="mt-5 space-y-2 text-right">
           {rows.map(([k, v]) => (
@@ -182,7 +182,7 @@ export function AdmissionForm({ whatsapp }: { whatsapp: string }) {
             rel="noreferrer"
             className="rounded-full bg-whatsapp px-5 py-2 font-bold text-whatsapp-foreground"
           >
-            وٹس ایپ پر درخواست بھیجیں
+            وٹس ایپ دوبارہ کھولیں
           </a>
           <button
             type="button"
