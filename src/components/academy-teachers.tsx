@@ -1,0 +1,10 @@
+import { z } from "zod";
+import { BadgeCheck } from "lucide-react";
+import first from "@/assets/teacher-zeeshan.jpg";
+import second from "@/assets/teacher-tajweed.jpg";
+import third from "@/assets/teacher-hifz.jpg";
+import { SectionHeading } from "./academy-shared";
+export const teachersSchema = z.object({ teachers: z.array(z.object({ name: z.string().min(3), specialty: z.string().min(3), experience: z.string().min(3) })).length(3) });
+export const teachers = [{ name: "Qari Zeeshan", specialty: "Quran & foundational learning", experience: "Experience details coming soon" }, { name: "Tajweed Teacher", specialty: "Tajweed & beautiful recitation", experience: "Teacher details coming soon" }, { name: "Hifz Teacher", specialty: "Memorization & revision", experience: "Teacher details coming soon" }];
+const portraits = [first, second, third];
+export function AcademyTeachers(props: z.infer<typeof teachersSchema>) { const data = teachersSchema.parse(props); return <section id="teachers" className="section-space"><div className="page-container"><SectionHeading eyebrow="GUIDED BY KNOWLEDGE & CARE" title="Meet Our Qualified Teachers" description="Patient guidance. Personal attention. A love for the Quran." /><div className="mt-10 grid gap-7 sm:grid-cols-3">{data.teachers.map((teacher, i) => <article key={teacher.name} className="teacher-card"><div className="relative"><img src={portraits[i]} alt={`Illustrative portrait for ${teacher.name}`} loading="lazy" width={816} height={816} className="aspect-[4/3] w-full object-cover object-[center_35%]" /><span className="absolute bottom-3 left-3 rounded bg-background/95 px-2 py-1 text-[10px] text-muted-foreground">Illustrative photo</span></div><div className="px-5 py-6"><h3 className="flex items-center gap-2 text-lg font-semibold">{teacher.name}<BadgeCheck className="size-4 text-primary" /></h3><p className="mt-2 text-xs font-medium text-primary">{teacher.specialty}</p><p className="mt-3 text-xs text-muted-foreground">{teacher.experience}</p></div></article>)}</div></div></section>; }
