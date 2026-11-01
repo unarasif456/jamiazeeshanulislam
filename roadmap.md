@@ -1,0 +1,3 @@
+- [ ] Redesign the academy's eight sections in emerald, gold and white.
+- [ ] Connect all enrollment and WhatsApp actions to 923152834384.
+- [ ] Test section data validation and verify desktop/mobile navigation and links.
