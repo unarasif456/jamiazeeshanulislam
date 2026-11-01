@@ -35,14 +35,6 @@ function phoneOk(v: string) {
   return /^(92|0)?3\d{9}$/.test(digits(v));
 }
 
-/** نمبر کو 923XXXXXXXXX شکل میں لانا (وٹس ایپ لنک کے لیے) */
-function waNumber(v: string) {
-  const d = digits(v);
-  if (d.startsWith("92")) return d;
-  if (d.startsWith("0")) return "92" + d.slice(1);
-  return "92" + d;
-}
-
 function dobOk(v: string) {
   const d = new Date(v + "T00:00:00Z");
   if (Number.isNaN(d.getTime())) return false;
@@ -141,6 +133,7 @@ export function AdmissionForm({ whatsapp }: { whatsapp: string }) {
     }
     setErrors({});
     setDone(true);
+    window.open(waHref(), "_blank", "noopener,noreferrer");
   };
 
   const reset = () => {
@@ -150,19 +143,8 @@ export function AdmissionForm({ whatsapp }: { whatsapp: string }) {
   };
 
   const waHref = () => {
-    const text = [
-      "السلام علیکم! جامعہ ذیشان الاسلام میں داخلے کی درخواست:",
-      `طلبہ کا نام: ${form.name}`,
-      `والد/سرپرست: ${form.father}`,
-      `شعبہ: ${form.dept}`,
-      `فون نمبر: ${form.phone}`,
-      `شہر/پتہ: ${form.city}`,
-      `تاریخ پیدائش: ${form.dob}`,
-      form.prev ? `پچھلی تعلیم: ${form.prev}` : "",
-    ]
-      .filter(Boolean)
-      .join("\n");
-    return `https://wa.me/${waNumber(form.phone) || whatsapp}?text=${encodeURIComponent(text)}`;
+    const text = `New Admission - Name: ${form.name}, Course: ${form.dept}, Phone: ${form.phone}`;
+    return `https://wa.me/${whatsapp}?text=${encodeURIComponent(text)}`;
   };
 
   if (done) {
@@ -179,8 +161,8 @@ export function AdmissionForm({ whatsapp }: { whatsapp: string }) {
       <div className="rounded-2xl border-2 border-primary bg-card p-6 text-center">
         <div className="text-gold text-2xl font-bold">جزاک اللہ خیرًا</div>
         <p className="mt-2 text-muted-foreground">
-          آپ کی درخواست تیار ہے۔ تصدیق کے لیے اسے وٹس ایپ پر بھیج دیں یا جامعہ آ کر
-          دستاویزات جمع کروائیں۔
+          آپ کی درخواست وٹس ایپ پر بھیج دی گئی ہے۔ اگر وٹس ایپ نہ کھلا ہو تو نیچے
+          والے بٹن سے دوبارہ بھیجیں۔
         </p>
         <ul className="mt-5 space-y-2 text-right">
           {rows.map(([k, v]) => (
@@ -200,7 +182,7 @@ export function AdmissionForm({ whatsapp }: { whatsapp: string }) {
             rel="noreferrer"
             className="rounded-full bg-whatsapp px-5 py-2 font-bold text-whatsapp-foreground"
           >
-            وٹس ایپ پر درخواست بھیجیں
+            وٹس ایپ دوبارہ کھولیں
           </a>
           <button
             type="button"
